@@ -1,0 +1,33 @@
+<div id="wrapper">
+    <div ng-include src="'js/views/admin-menu.phtml'"></div>
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Slider Settings</h1>
+            </div>
+        </div>
+
+        <div flow-init="{target: '/upload'}"
+             flow-files-submitted="$flow.upload()"
+             flow-file-success="$file.msg = $message">
+
+            <input type="file" flow-btn/>
+            Input OR Other element as upload button
+            <span class="btn" flow-btn>Upload File</span>
+
+            <table>
+                <tr ng-repeat="file in $flow.files">
+                    <td>{{$index+1}}</td>
+                    <td>{{file.name}}</td>
+                    <td>{{file.msg}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script src="js/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<script src="dist/js/sb-admin-2.js"></script>
+<link href="js/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+<link href="dist/css/sb-admin-2.css" rel="stylesheet">

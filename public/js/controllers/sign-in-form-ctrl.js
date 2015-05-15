@@ -7,7 +7,7 @@ app.controller('SignInFormCtrl', function($scope, $modal) {
 
         var modalInstance = $modal.open({
             animation: $scope.animationsEnabled,
-            templateUrl: 'js/views/signInForm.phtml',
+            templateUrl: '/views/signInForm.phtml',
             controller: 'SignInCtrl',
             size: size
        });

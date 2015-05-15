@@ -8,9 +8,24 @@ $router->add("/", array(
     'action' => 'index'
 ));
 
-$router->add("/upload", array(
+$router->add("/upload/", array(
     'controller' => 'upload',
     'action' => 'index'
+));
+
+$router->add("/get-slider-list", array(
+    'controller' => 'content',
+    'action' => 'getSliderList'
+));
+
+$router->add("/get-images-list", array(
+    'controller' => 'content',
+    'action' => 'getImagesList'
+));
+
+$router->addDelete("/get-images-list/{id}", array(
+    'controller' => 'content',
+    'action' => 'deleteImage',
 ));
 
 //Set 404 paths
@@ -19,5 +34,5 @@ $router->notFound(array(
     "action" => "index"
 ));
 
-$router->handle();
+//$router->handle();
 return $router;

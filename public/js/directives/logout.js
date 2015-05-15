@@ -3,7 +3,7 @@
 app.directive('logOut', function () {
     return {
         restrict: 'E',
-        templateUrl: 'js/views/logout.phtml',
+        templateUrl: '/views/logout.phtml',
         controller: '@',
         name: 'controllerName'
     };

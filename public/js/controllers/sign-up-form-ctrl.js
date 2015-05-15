@@ -8,7 +8,7 @@ app.controller('SignUpFormCtrl', function($scope, $modal, $log) {
 
         var modalInstance = $modal.open({
             animation: $scope.animationsEnabled,
-            templateUrl: 'js/views/signUpForm.phtml',
+            templateUrl: '/views/signUpForm.phtml',
             controller: 'SignUpCtrl',
             size: size,
             resolve: {

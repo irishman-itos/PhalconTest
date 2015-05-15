@@ -6,7 +6,8 @@ var app = angular.module('phalcone', [
     'ngTouch',
     'ngAnimate',
     'ngCookies',
-    'flow'
+    'angularFileUpload',
+    'ngResource'
 ]);
 
 app.controller('MainController', function ($scope, $rootScope, $cookieStore) {
@@ -21,14 +22,17 @@ app.controller('MainController', function ($scope, $rootScope, $cookieStore) {
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/dashboard', {
-            templateUrl: 'js/views/dashboard.phtml'
+            templateUrl: '/views/dashboard.phtml'
 //            controller: 'DashboardCtrl'
         }).
+        when('/uploads', {
+            templateUrl: '/views/uploads.phtml'
+        }).
         when('/slider', {
-            templateUrl: 'js/views/slider.phtml'
+            templateUrl: '/views/slider.phtml'
         }).
         when('/', {
-            templateUrl: 'js/views/index.phtml'
+            templateUrl: '/views/index.phtml'
         }).
         otherwise({
             redirectTo: '/'

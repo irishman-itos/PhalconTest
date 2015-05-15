@@ -13,6 +13,11 @@ use Phalcon\Session\Adapter\Files as SessionAdapter;
  */
 $di = new FactoryDefault();
 
+$di->set('router', function(){
+    require __DIR__.'/routes.php';
+    return $router;
+});
+
 /**
  * The URL component is used to generate all kind of urls in the application
  */
@@ -51,21 +56,16 @@ $di->set('view', function () use ($config) {
 }, true);
 
 /**
- * Database connection is created based in the parameters defined in the configuration file
+ * Mongo DB connection
  */
-$di->set('db', function () use ($config) {
-    return new DbAdapter($config->toArray());
-});
+$di->set('mongo', function() {
+    $mongo = new Mongo();
+    return $mongo->selectDb("phalcon");
+}, true);
 
-/**
- * Router
- */
-$di->set('router', function () {
-        return include APP_PATH . "/app/config/routes.php";
-    },
-    true
-);
-
+$di->set('collectionManager', function(){
+    return new Phalcon\Mvc\Collection\Manager();
+}, true);
 
 /**
  * If the configuration specify the use of metadata adapter use it or use memory otherwise

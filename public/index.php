@@ -1,5 +1,5 @@
 <?php
-
+//echo phpinfo();die;
 error_reporting(E_ALL);
 
 try {

@@ -10,20 +10,14 @@ class UploadController extends ControllerBase
 {
     public function indexAction()
     {
-        var_dump(11);die;
-        // Check if the user has uploaded files
         if ($this->request->hasFiles() == true) {
-            $baseLocation = 'files/';
+            $baseLocation = 'uploads/';
 
-
-            // Print the real file names and sizes
             foreach ($this->request->getUploadedFiles() as $file) {
-                $photos = new Photo();
-                $photos->name = $file->getName();
-                $photos->size = $file->getSize();
-                $photos->save();
+                $image = new Images();
+                $image->url = '/uploads/' . $file->getName();
+                $image->save();
 
-                //Move the file into the application
                 $file->moveTo($baseLocation . $file->getName());
             }
         }
